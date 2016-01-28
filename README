@@ -1,0 +1,9 @@
+TeensyNeoPixelCAN
+=================
+
+This program controls NeoPxiel LED strips over CAN with a Teensy microcontroller.
+It is currently designed for the Offseason 2015 robot, which has two strips with 34 LEDs each.
+It will be compatible with the CustomNeoPixels library once it is finished.
+It is designed to be controlled by setting mode, color, and progress through mode, rather than
+setting individual LEDs. This reduces the required number of messages and exports more
+processing to the Teensy.
