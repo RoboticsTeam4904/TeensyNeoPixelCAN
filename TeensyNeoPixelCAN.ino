@@ -6,7 +6,7 @@
 const int numberPixels = 34;
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(numberPixels, 6, NEO_GRB + NEO_KHZ800);
-TeensyCANBase can(0x423);
+TeensyCANBase can(0x600);
 
 const int solidMode = 0;
 const int sweepMode = 1;
@@ -21,6 +21,12 @@ void setup() {
   can.begin();
   pixels.begin();
   Serial.begin(9600);
+  Serial.println("Begin Teensy Connection");
+  mode = 0;
+  progress = 0;
+  R = 0;
+  G = 0;
+  B = 0;
 }
 
 void loop() {
@@ -42,6 +48,7 @@ void loop() {
       Serial.print("\t");
       Serial.print(B);
       Serial.println();
+      can.write(data);
     }
     delete data;
   }
@@ -52,6 +59,7 @@ void loop() {
   }
 
   pixels.show();
+  delay(100);
 }
 
 void solid(){
