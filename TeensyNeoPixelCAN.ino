@@ -59,7 +59,6 @@ void loop() {
   }
 
   pixels.show();
-  delay(10);
 }
 
 void solid(){
